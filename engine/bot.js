@@ -33,19 +33,20 @@ export class Bot {
       bot.busy = true; 
 
       if (task.types.includes(bot.type)) { 
-        tasks.shift() //removes task and does it
+        
         setTimeout(function(){ 
           bot.points += 1;
           bot.busy = false;
-          
+          tasks.shift() //removes task and does it
           $('#messages').append(`<p>${descrip}, completed by bot ${bot.name}</p>`) //return a message of what bot completed a task
           return bot.doTask(bot, tasks);
         }, time)
       } else {
         setTimeout(function(){ //if the type isnt accepted times out but doesnt remove task
           bot.busy = false;
-          bot.assigned = tasks; // replace the bot's array to note that the task was "compeleted" but dont give credit
-          return bot.doTask(bot, tasks.slice(1, tasks.length));
+          tasks.shift(); // replace the bot's array to note that the task was "compeleted" but dont give credit
+          $('#messages').append(`<p>${descrip}, cannot be done by bot ${bot.name}</p>`)
+          return bot.doTask(bot, tasks);
         }, time)
       }
 

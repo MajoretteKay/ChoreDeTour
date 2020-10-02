@@ -3,12 +3,11 @@ import { Game } from "./game.js";
 let game = {};
 
 $(function() { //initiate the game and check storage for previous game
-     if (typeof(Storage) != "undefined") {
-         game = new Game();
+     if (typeof(storage) != "undefined") {
+         game = new Game("empty");
         
        } else {
-         game = JSON.parse(localStorage.getItem("game"))
-         console.log(game)
+         game = new Game(JSON.parse(localStorage.getItem("game")))
        }
     
     renderSite();
@@ -26,10 +25,10 @@ function renderSite() { //render main site and handlers
     $('#root').append(htmlstring);
     $('#root').append(renderBotForm());
 
-    setInterval(function() { 
+    setInterval(function() { // updates leaderboard and saves game every second
         $('#leaderboard').html(renderLeaderboard()) 
         localStorage.setItem("game", JSON.stringify(game));
-        console.log(localStorage)
+
     }, 1000);
 
     $('#root').on("submit", ".newbot", handleNewBot);
@@ -91,6 +90,11 @@ function handleChores() { // starting chores handler
 }
 
 function handleNewGame() { //resets game and localstorage
-    game = new Game()
-    localStorage.removeItem("game")
+    game = new Game("empty")
+    localStorage.clear()
+    $('div#messages').replaceWith(`<div id="messages">
+    <h1>Tour De Chore</h1>
+    <button class="start">Start Chores!</button>
+    <button class="new">New Game?</button>
+    </div>`)
 }
