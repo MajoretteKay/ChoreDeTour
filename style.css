@@ -1,0 +1,51 @@
+body {
+    background-color: #73b4fd;
+}
+
+h1 {
+    text-align: center;
+    font-family: monospace;
+}
+
+h2 {
+    text-align: center;
+    font-family: monospace;
+}
+
+p {
+    font-family: monospace;
+}
+
+button {
+    border: 1px, solid, #005fcc;
+    background-color: #b1d4fccb;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#newbotform {
+    text-align: left;
+    border: 2px solid #005fcc;
+    background-color: #b1d4fccb;
+    width: 32%;
+    height: 100%;
+    float: left;
+    padding: 10px;
+    display: block;
+}
+
+#messages {
+    text-align: center;
+    z-index: -1;
+    float: left;
+    width: 30%;
+}
+
+#leaderboard {
+    border: 2px solid #005fcc;
+    background-color: #b1d4fccb;
+    width: 32%;
+    float: right;
+    padding: 15px;
+    display: block;
+}
