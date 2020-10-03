@@ -1,3 +1,23 @@
+# Installation instructions
+
+Language used JavaScript (small amounts of CSS/html for graphical interface)
+
+I used visual studio as my IDE:
+
+npm install browser-sync (what i used to view the html graphical interface, any similar program that draws from index.html will work)
+npm install jquery
+
+
+In terminal run:
+npx browser-sync start -sw
+
+This opens a localhost:3000 of the web page, any changes in code will be automatically reflected in this window
+nothing further is needed to install the code
+
+
+
+
+
 # BOT-O-MAT
 Use any language to complete this challenge. The implementation is up to you: it can be a command-line application or have a graphical interface.
 
